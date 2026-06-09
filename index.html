@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Biblioteca de Testimonios FGDLL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Ir al inicio">
+      <img src="assets/logo-gdll.png" alt="" />
+      <span>
+        <strong>Biblioteca de Testimonios</strong>
+        <small>Fraternidad Guerreros de la Luz A.C.</small>
+      </span>
+    </a>
+    <nav class="navlinks" aria-label="Secciones">
+      <a href="#biblioteca">Biblioteca</a>
+      <a href="#portal">Portal</a>
+      <a href="#guia">Guía</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Catálogo estático · Testimonio y compartimiento</p>
+        <h1>Temas listos para detectar, admitir y corregir.</h1>
+        <p>Una versión nueva del código pegado: temas de Día del Padre, temas de aniversario y recursos de portal en una interfaz sobria para buscar, filtrar, copiar, imprimir o compartir.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#biblioteca">Buscar temas</a>
+          <button class="button" id="printPage" type="button">Imprimir selección</button>
+        </div>
+      </div>
+      <aside class="stats" aria-label="Resumen del catálogo">
+        <div><strong id="statTopics">0</strong><span>Temas</span></div>
+        <div><strong id="statCats">0</strong><span>Categorías</span></div>
+        <div><strong id="statPortal">0</strong><span>Recursos portal</span></div>
+      </aside>
+    </section>
+
+    <section class="toolbar" id="biblioteca">
+      <div>
+        <p class="eyebrow">Biblioteca</p>
+        <h2>Buscar temas</h2>
+      </div>
+      <div class="controls" role="search">
+        <label class="search">
+          <span>Buscar</span>
+          <input id="searchInput" type="search" placeholder="presencia, perdón, fe, ansiedad..." autocomplete="off" />
+        </label>
+        <label>
+          <span>Categoría</span>
+          <select id="categoryFilter"></select>
+        </label>
+        <label>
+          <span>Intensidad</span>
+          <select id="intensityFilter">
+            <option value="">Todas</option>
+            <option>Alta</option>
+            <option>Media</option>
+            <option>Baja</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section class="results-shell" aria-live="polite">
+      <div class="results-head">
+        <p id="resultCount">0 resultados</p>
+        <div class="chips" id="activeChips"></div>
+      </div>
+      <div class="cards" id="cards"></div>
+    </section>
+
+    <section class="portal-section" id="portal">
+      <div class="section-title">
+        <p class="eyebrow">Portal operativo</p>
+        <h2>Recursos incluidos en el código</h2>
+      </div>
+      <div class="portal-grid" id="portalGrid"></div>
+    </section>
+
+    <section class="guide" id="guia">
+      <div>
+        <p class="eyebrow">Uso recomendado</p>
+        <h2>Cuidar el testimonio</h2>
+      </div>
+      <p>Los temas familiares se deben trabajar desde la propia experiencia. La ficha está ordenada para evitar catarsis desordenada, juicio a terceros o exposición innecesaria de familia, pareja o hijos.</p>
+    </section>
+  </main>
+
+  <dialog id="topicDialog">
+    <article class="modal-card">
+      <button class="icon-button close" id="closeDialog" type="button" aria-label="Cerrar">×</button>
+      <p class="eyebrow" id="modalCategory"></p>
+      <h2 id="modalTitle"></h2>
+      <p class="modal-objective" id="modalObjective"></p>
+      <div class="modal-meta" id="modalMeta"></div>
+      <div class="guide-grid" id="modalGuide"></div>
+      <div class="warning" id="modalWarning"></div>
+      <div class="modal-actions">
+        <button class="button primary" id="copyTopic" type="button">Copiar ficha</button>
+        <a class="button" id="shareTopic" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </article>
+  </dialog>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
